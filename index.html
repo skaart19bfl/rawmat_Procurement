@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>ราคาวัตถุดิบ</title>
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="ราคาวัตถุดิบ">
+<meta name="theme-color" content="#1565C0">
+<script>
+  // ▼▼ วางลิงก์เว็บแอป (Deploy > Manage deployments > Web app URL ที่ลงท้าย /exec) ระหว่างเครื่องหมาย ' ' ▼▼
+  const APP_URL = 'https://script.google.com/macros/s/AKfycbwJqTC7CI0mEE9SXKQNn4aJ_pNvrAo-Wzqp4muilcYPJmpCH7Twlh5wrVtGVgoS9Q5-/exec';
+  // ▲▲ แก้แค่บรรทัดบนบรรทัดเดียว ▲▲
+  const ready = /^https:\/\/script\.google\.com\/.+\/exec/.test(APP_URL);
+  const fromHome = navigator.standalone === true || matchMedia('(display-mode: standalone)').matches || new URLSearchParams(location.search).has('app');
+  if (ready && fromHome) location.replace(APP_URL);
+</script>
+<style>
+  :root{--ink:#16263A;--muted:#5A6B80;--blue:#1565C0;--line:#DCE4EE;--bg:#F4F7FB}
+  *{box-sizing:border-box}
+  body{margin:0;min-height:100vh;background:var(--bg);color:var(--ink);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Tahoma,sans-serif;display:grid;place-items:center;padding:24px 16px}
+  main{width:100%;max-width:440px;background:#fff;border:1px solid var(--line);border-radius:20px;padding:28px 22px;display:grid;gap:18px;text-align:center}
+  img.logo{height:110px;margin:0 auto}
+  h1{margin:0;font-size:22px}
+  .go{display:block;background:var(--blue);color:#fff;text-decoration:none;font-weight:600;font-size:18px;padding:16px;border-radius:14px}
+  .go[aria-disabled="true"]{background:#9AA8B8;pointer-events:none}
+  ol{text-align:left;margin:0;padding-left:22px;display:grid;gap:6px}
+  h2{font-size:15px;margin:0;text-align:left;color:var(--muted)}
+  .box{border-top:1px solid var(--line);padding-top:14px;display:grid;gap:8px}
+  .warn{background:#FFF4E0;border-radius:10px;padding:10px;font-size:14px}
+</style>
+</head>
+<body>
+<main>
+  <img class="logo" src="logo.png" alt="Bluefalo">
+  <h1>บันทึกราคาวัตถุดิบ</h1>
+  <a class="go" id="go" href="#">เปิดแอป</a>
+  <p class="warn" id="warn" hidden>ยังไม่ได้ใส่ลิงก์เว็บแอปในไฟล์ index.html</p>
+  <div class="box">
+    <h2>iPhone / iPad (Safari)</h2>
+    <ol><li>แตะปุ่ม แชร์ (สี่เหลี่ยมมีลูกศรขึ้น)</li><li>เลือก "เพิ่มไปยังหน้าจอโฮม"</li><li>กด "เพิ่ม" ไอคอน Bluefalo จะขึ้นบนหน้าจอ</li></ol>
+  </div>
+  <div class="box">
+    <h2>Android (Chrome)</h2>
+    <ol><li>แตะเมนู ⋮ มุมขวาบน</li><li>เลือก "เพิ่มลงในหน้าจอหลัก" หรือ "ติดตั้งแอป"</li></ol>
+  </div>
+</main>
+<script>
+  const go=document.getElementById('go');
+  if(ready){go.href=APP_URL}else{go.setAttribute('aria-disabled','true');document.getElementById('warn').hidden=false}
+</script>
+</body>
+</html>
